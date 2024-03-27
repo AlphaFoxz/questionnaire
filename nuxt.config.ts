@@ -16,10 +16,6 @@ export default defineNuxtConfig({
       drop: ['console', 'debugger'],
     },
     build: {
-      commonjsOptions: {
-        include: /node_modules/,
-        defaultIsModuleExports: false,
-      },
       minify: 'esbuild',
     },
     css: {
