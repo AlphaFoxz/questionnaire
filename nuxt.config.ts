@@ -10,6 +10,7 @@ export default defineNuxtConfig({
       serverPort: 8081,
     },
   },
+  primevue: {},
   vite: {
     css: {
       preprocessorOptions: {
