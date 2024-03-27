@@ -11,8 +11,8 @@ api.biz.getHomeList((data: QuestMeta[]) => {
 </script>
 
 <template>
-  <DataView :value="list" :layout="layout" data-key="id">
-    <template #list="slotProps: {items: QuestMeta[]}">
+  <DataView :value="list" :layout="layout" data-key="id" :paginator="false">
+    <template #list="slotProps: { items: QuestMeta[] }">
       <div v-for="item in slotProps.items" :key="item.id">
         <RouterLink :to="`/quest/${item.id}`">{{ item.title }}</RouterLink>
       </div>
