@@ -12,6 +12,16 @@ export default defineNuxtConfig({
   },
   primevue: {},
   vite: {
+    esbuild: {
+      drop: ['console', 'debugger'],
+    },
+    build: {
+      commonjsOptions: {
+        include: /node_modules/,
+        defaultIsModuleExports: false,
+      },
+      minify: 'esbuild',
+    },
     css: {
       preprocessorOptions: {
         scss: {
