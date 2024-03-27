@@ -78,6 +78,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Static HTML export with Nuxt
         run: |
+          cat /home/runner/work/questionnaire/questionnaire/.nuxt/prerender/chunks/build/index-CbtQxw3q.mjs
           ${{ steps.detect-package-manager.outputs.manager }} run generate && exit 0
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
