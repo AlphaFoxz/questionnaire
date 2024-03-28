@@ -20,8 +20,11 @@ jobs:
           version: 8
       # Pick your own package manager and build script
       - run: pnpm install
-      # - run: npx nuxt generate
-      - run: echo 'NUXT_APP_BASE_URL=/questionnaire' > ./.env
+      # Setup environment variables
+      - run: |
+          echo 'NUXT_APP_BASE_URL=/questionnaire' > ./.env
+          echo 'NUXT_APP_SERVER_HOST=127.0.0.1' >> ./.env
+          echo 'NUXT_APP_SERVER_PORT=8081' >> ./.env
       - run: npx nuxt build --preset github_pages
       - name: Upload artifact 🚀
         uses: actions/upload-pages-artifact@v1
