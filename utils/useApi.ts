@@ -71,7 +71,7 @@ const api: FullyApi = {
 }
 
 export default () => {
-  const URL = `wss://${config.public.serverHost}:${config.public.serverPort}`
+  const URL = `ws://${config.public.serverHost}:${config.public.serverPort}`
   if (!socket || !socket.connected) {
     socket = io(URL, { autoConnect: true })
     socket.on('disconnect', () => socket.connect())
