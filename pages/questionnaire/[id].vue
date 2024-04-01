@@ -70,7 +70,12 @@ function handleSubmit() {
     <Sidebar v-model:visible="siderVisible" header="Sidebar">
       <div class="flex">
         <div style="margin: 0.2rem" v-for="(item, index) in questionnaire.questions" :key="item.id">
-          <Button :label="`${index + 1}`" :severity="isDone" @click="handleSwitch(index)" :raised="isRaised(index)" />
+          <Button
+            :label="`${index + 1}`"
+            :severity="isDone(item.id)"
+            @click="handleSwitch(index)"
+            :raised="isRaised(index)"
+          />
         </div>
       </div>
     </Sidebar>
