@@ -1,6 +1,9 @@
 {
   "$schema": "./_schema.json",
   "project.title": "问卷调查系统",
+  "requiredPassword": "请输入密码",
+  "cancel": "取消",
+  "start": "开始",
   "back": "返回",
   "submit": "提交",
   "completed": "已完成",

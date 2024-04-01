@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import 'primevue/resources/themes/aura-light-green/theme.css'
+import Toast from 'primevue/toast'
 </script>
 
 <template>
+  <Toast position="top-right" style="max-width: 70vw" />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>

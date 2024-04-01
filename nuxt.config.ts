@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
-  css: ['primevue/resources/themes/aura-light-green/theme.css', '~/assets/css/main.css'],
+  css: ['primevue/resources/themes/aura-light-green/theme.css', 'primeicons/primeicons.css', '~/assets/css/main.css'],
   modules: ['@nuxtjs/i18n', 'nuxt-primevue'],
   runtimeConfig: {
     public: {
@@ -10,13 +10,18 @@ export default defineNuxtConfig({
       serverPort: 8081,
     },
   },
-  primevue: {},
+  plugins: ['~/plugins/primevue-custom'],
+  primevue: {
+    components: {
+      exclude: '*',
+    },
+    options: {
+      ripple: true,
+    },
+  },
   vite: {
     esbuild: {
       drop: ['console', 'debugger'],
-    },
-    build: {
-      minify: 'esbuild',
     },
     css: {
       preprocessorOptions: {

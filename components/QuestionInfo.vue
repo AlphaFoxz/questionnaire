@@ -5,22 +5,36 @@ import Divider from 'primevue/divider'
 import type { Option } from '~/define'
 
 const props = defineProps({
+  id: { type: String, required: true },
   content: { type: String, required: true },
-  disabled: { type: Boolean, default: false },
   options: { type: Array, required: true },
 })
-const value = ref()
+
+const questionStore = useQuestionStore(props.id)
+const value = ref(questionStore.getResult(props.id))
+watch([() => props.id, value], (v, o) => {
+  if (v && o && v[0] === o[0]) {
+    questionStore.setResult(o[0], v[1]!)
+    return
+  }
+  value.value = questionStore.getResult(v[0])
+})
+onUnmounted(questionStore.save)
 </script>
 
 <template>
-  <Card class="w-2/3">
+  <Card class="w-full">
     <template #content>
-      <p class="items-center">{{ content }}</p>
-      <Divider></Divider>
-      <template v-for="item in (options as Option[])" :key="item.id">
-        <RadioButton v-model:value="value" :input-id="item.id" />
-        <label :for="item.id">{{ item.content }}</label>
-      </template>
+      <div>
+        <p class="items-center">{{ content }}</p>
+        <Divider></Divider>
+        <div class="flex justify-start flex-wrap">
+          <div v-for="item in (options as Option[])" :key="item.id" class="w-full" style="margin: 0.4rem 0">
+            <RadioButton v-model="value" :value="item.id" :input-id="'option-' + item.id" />
+            <label :for="'option-' + item.id">{{ item.content }}</label>
+          </div>
+        </div>
+      </div>
     </template>
   </Card>
 </template>

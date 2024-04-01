@@ -2,6 +2,7 @@ export type QuestMeta = {
   id: string
   title: string
   description: string
+  has_password: boolean
 }
 
 export type Option = {
@@ -14,4 +15,9 @@ export type Question = {
   content: string
   questionnaire_id: string
   options: Option[]
+}
+
+export type Questionnaire = {
+  meta: QuestMeta
+  questions: Question[]
 }
