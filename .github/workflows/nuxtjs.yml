@@ -23,8 +23,8 @@ jobs:
       # Setup environment variables
       - run: |
           echo 'NUXT_APP_BASE_URL=/questionnaire' > ./.env
-          echo 'NUXT_APP_SERVER_HOST=frp-can.top' >> ./.env
-          echo 'NUXT_APP_SERVER_PORT=34716' >> ./.env
+          echo 'NUXT_APP_SERVER_HOST=frp-fun.top' >> ./.env
+          echo 'NUXT_APP_SERVER_PORT=22587' >> ./.env
       - run: npx nuxt build --preset github_pages
       - name: Upload artifact 🚀
         uses: actions/upload-pages-artifact@v1
